@@ -4,6 +4,17 @@ app_publisher = "Mahmoud Elwazeer"
 app_description = "company_management_system"
 app_email = "mahmoud.m.elwazeer@gmail.com"
 app_license = "mit"
+fixtures = [
+    {
+            "doctype": "Workflow"
+    },
+    {
+        "doctype": "Workflow State"
+    },
+    {
+        "doctype": "Workflow Action"
+    }
+]
 
 # Apps
 # ------------------
