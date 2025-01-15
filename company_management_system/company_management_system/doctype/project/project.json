@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:project_name",
+ "autoname": "format:{project_name}-{####}",
  "creation": "2025-01-14 11:47:23.677892",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -36,8 +36,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Project Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "description",
@@ -66,11 +65,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-14 20:15:52.990457",
+ "modified": "2025-01-15 11:10:09.057564",
  "modified_by": "Administrator",
  "module": "company_management_system",
  "name": "Project",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -82,6 +81,31 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   }

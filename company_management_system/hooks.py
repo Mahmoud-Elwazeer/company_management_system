@@ -5,14 +5,21 @@ app_description = "company_management_system"
 app_email = "mahmoud.m.elwazeer@gmail.com"
 app_license = "mit"
 fixtures = [
+    # Export specific roles (Admin, Manager, Employee)
     {
-            "doctype": "Workflow"
+        'dt': 'Role', 
+        'filters': {'name': ('in', ('Admin', 'Manager', 'Employee'))}
+    },
+    {
+        "dt": "Custom DocPerm",
+        'filters': {'role': ('in', ('Admin', 'Manager', 'Employee'))}
+    },
+    # Export Workflow-related DocTypes
+    {
+        "doctype": "Workflow"
     },
     {
         "doctype": "Workflow State"
-    },
-    {
-        "doctype": "Workflow Action"
     }
 ]
 

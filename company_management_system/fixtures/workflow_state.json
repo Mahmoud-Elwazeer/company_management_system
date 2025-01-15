@@ -2,60 +2,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 12:56:38.579515",
-  "name": "Pending Review",
-  "style": "",
-  "workflow_state_name": "Pending Review"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 12:57:00.890977",
-  "name": "Review Scheduled",
-  "style": "",
-  "workflow_state_name": "Review Scheduled"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 12:57:11.707317",
-  "name": "Feedback Provided",
-  "style": "",
-  "workflow_state_name": "Feedback Provided"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 12:57:21.487079",
-  "name": "Under Approval",
-  "style": "",
-  "workflow_state_name": "Under Approval"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 12:57:31.724152",
-  "name": "Review Approved",
-  "style": "",
-  "workflow_state_name": "Review Approved"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-01-14 12:57:42.319183",
-  "name": "Review Rejected",
-  "style": "",
-  "workflow_state_name": "Review Rejected"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
   "icon": "question-sign",
   "modified": "2025-01-14 13:54:50.504190",
   "name": "Pending",
@@ -79,5 +25,59 @@
   "name": "Rejected",
   "style": "Danger",
   "workflow_state_name": "Rejected"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-01-14 12:56:38.579515",
+  "name": "Pending Review",
+  "style": "",
+  "workflow_state_name": "Pending Review"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-01-14 12:57:31.724152",
+  "name": "Review Approved",
+  "style": "",
+  "workflow_state_name": "Review Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-01-14 12:57:00.890977",
+  "name": "Review Scheduled",
+  "style": "",
+  "workflow_state_name": "Review Scheduled"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-01-14 12:57:42.319183",
+  "name": "Review Rejected",
+  "style": "",
+  "workflow_state_name": "Review Rejected"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-01-14 12:57:11.707317",
+  "name": "Feedback Provided",
+  "style": "",
+  "workflow_state_name": "Feedback Provided"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-01-14 12:57:21.487079",
+  "name": "Under Approval",
+  "style": "",
+  "workflow_state_name": "Under Approval"
  }
 ]

@@ -4,13 +4,13 @@
   "doctype": "Workflow",
   "document_type": "Performance Review",
   "is_active": 1,
-  "modified": "2025-01-14 13:22:12.161133",
+  "modified": "2025-01-15 09:07:26.497067",
   "name": "Performance Review",
   "override_status": 0,
   "send_email_alert": 0,
   "states": [
    {
-    "allow_edit": "All",
+    "allow_edit": "Manager",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -25,7 +25,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "All",
+    "allow_edit": "Manager",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -40,7 +40,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "All",
+    "allow_edit": "Manager",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -55,7 +55,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "All",
+    "allow_edit": "Admin",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -70,7 +70,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "All",
+    "allow_edit": "Admin",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -85,7 +85,7 @@
     "workflow_builder_id": null
    },
    {
-    "allow_edit": "All",
+    "allow_edit": "Manager",
     "avoid_status_override": 0,
     "doc_status": "0",
     "is_optional_state": 0,
@@ -104,7 +104,7 @@
    {
     "action": "Confirm Review Date",
     "allow_self_approval": 1,
-    "allowed": "All",
+    "allowed": "Manager",
     "condition": null,
     "next_state": "Review Scheduled",
     "parent": "Performance Review",
@@ -116,7 +116,7 @@
    {
     "action": "Record Feedback",
     "allow_self_approval": 1,
-    "allowed": "All",
+    "allowed": "Manager",
     "condition": null,
     "next_state": "Feedback Provided",
     "parent": "Performance Review",
@@ -128,7 +128,7 @@
    {
     "action": "Submit for Approval",
     "allow_self_approval": 1,
-    "allowed": "All",
+    "allowed": "Manager",
     "condition": null,
     "next_state": "Under Approval",
     "parent": "Performance Review",
@@ -140,7 +140,7 @@
    {
     "action": "Approve Feedback",
     "allow_self_approval": 1,
-    "allowed": "All",
+    "allowed": "Admin",
     "condition": null,
     "next_state": "Review Approved",
     "parent": "Performance Review",
@@ -152,7 +152,7 @@
    {
     "action": "Reject Feedback",
     "allow_self_approval": 1,
-    "allowed": "All",
+    "allowed": "Admin",
     "condition": null,
     "next_state": "Review Rejected",
     "parent": "Performance Review",
@@ -164,7 +164,7 @@
    {
     "action": "Update Feedback",
     "allow_self_approval": 1,
-    "allowed": "All",
+    "allowed": "Manager",
     "condition": null,
     "next_state": "Feedback Provided",
     "parent": "Performance Review",
