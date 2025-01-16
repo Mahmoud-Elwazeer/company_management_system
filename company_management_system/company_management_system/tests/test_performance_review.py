@@ -70,6 +70,8 @@ class TestPerformanceReview(FrappeTestCase):
         # Submit the document
         performance_review.submit()
 
+        performance_review.reload()
+
         # Try to update the employee_name field
         with self.assertRaises(frappe.ValidationError):
             performance_review.employee_name = "Jane Doe"
@@ -98,6 +100,7 @@ class TestPerformanceReview(FrappeTestCase):
         # Transition to "Feedback Provided"
         performance_review.status = "Feedback Provided"
         performance_review.save()
+        performance_review.reload()
 
         # Try to update the review_date field
         with self.assertRaises(frappe.ValidationError):
@@ -119,21 +122,25 @@ class TestPerformanceReview(FrappeTestCase):
         # Transition to "Review Scheduled"
         performance_review.status = "Review Scheduled"
         performance_review.save()
+        performance_review.reload()
         self.assertEqual(performance_review.status, "Review Scheduled")
 
         # Transition to "Feedback Provided"
         performance_review.status = "Feedback Provided"
         performance_review.save()
+        performance_review.reload()
         self.assertEqual(performance_review.status, "Feedback Provided")
 
         # Transition to "Under Approval"
         performance_review.status = "Under Approval"
         performance_review.save()
+        performance_review.reload()
         self.assertEqual(performance_review.status, "Under Approval")
 
         # Transition to "Review Approved"
         performance_review.status = "Review Approved"
         performance_review.save()
+        performance_review.reload()
         self.assertEqual(performance_review.status, "Review Approved")
 
     def test_prevent_update_feedback(self):
@@ -151,11 +158,13 @@ class TestPerformanceReview(FrappeTestCase):
         # Transition to "Review Approved"
         performance_review.status = "Review Approved"
         performance_review.save()
+        performance_review.reload()
 
         # Try to update the feedback field
         with self.assertRaises(frappe.ValidationError):
             performance_review.feedback = "Updated feedback"
             performance_review.save()
+            performance_review.reload()
 
     def test_is_review_date_valid(self):
         """
