@@ -64,8 +64,7 @@ class TestPerformanceReview(FrappeTestCase):
         performance_review = frappe.get_doc({
             "doctype": "Performance Review",
             "employee_name": self.employee.name,
-            "review_date": "2030-01-01",
-            "status": "Pending Review"
+            "review_date": "2030-01-01"
         }).insert()
 
         # Submit the document
@@ -84,8 +83,7 @@ class TestPerformanceReview(FrappeTestCase):
         performance_review = frappe.get_doc({
             "doctype": "Performance Review",
             "employee_name": self.employee.name,
-            "review_date": "2030-01-01",
-            "status": "Pending Review"
+            "review_date": "2030-01-01"
         }).insert()
 
         # Transition to "Review Scheduled"
@@ -115,8 +113,7 @@ class TestPerformanceReview(FrappeTestCase):
         performance_review = frappe.get_doc({
             "doctype": "Performance Review",
             "employee_name": self.employee.name,
-            "review_date": "2030-08-20",
-            "status": "Pending Review"
+            "review_date": "2030-08-20"
         }).insert()
 
         # Transition to "Review Scheduled"
@@ -148,7 +145,6 @@ class TestPerformanceReview(FrappeTestCase):
             "doctype": "Performance Review",
             "employee_name": self.employee.name,
             "review_date": "2030-01-01",
-            "status": "Pending Review",
             "feedback": "Initial feedback"
         }).insert()
 
@@ -170,8 +166,7 @@ class TestPerformanceReview(FrappeTestCase):
             performance_review = frappe.get_doc({
                 "doctype": "Performance Review",
                 "employee_name": self.employee.name,
-                "review_date": "2020-01-01",
-                "status": "Pending Review"
+                "review_date": "2020-01-01"
             }).insert()
 
         # Create a new performance review with a future review date
@@ -179,8 +174,7 @@ class TestPerformanceReview(FrappeTestCase):
         performance_review = frappe.get_doc({
             "doctype": "Performance Review",
             "employee_name": self.employee.name,
-            "review_date": future_date,
-            "status": "Pending Review"
+            "review_date": future_date
         }).insert()
 
         # Check if the performance review was created successfully
