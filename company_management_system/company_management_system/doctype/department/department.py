@@ -7,9 +7,16 @@ from company_management_system.company_management_system.utils.errorHandler impo
 
 class Department(Document):
 	@global_error_handler
-	def validate(self):
+	def after_insert(self):
 		"""
-		Use this method to throw any validation errors and prevent the document from saving
+		This method is called after the document is inserted into the database.
+		"""
+		self.update_company_number_of_departments()
+
+	@global_error_handler
+	def after_delete(self):
+		"""
+		This method is called when the document is deleted.
 		"""
 		self.update_company_number_of_departments()
 
@@ -21,6 +28,7 @@ class Department(Document):
 		if self.company:
 			comp = frappe.get_doc('Company', self.company)
 			departments = frappe.get_all('Department', filters={'company': self.company})
+			print(departments, len(departments))
 			if comp.number_of_departments != len(departments):
 				comp.number_of_departments = len(departments)
 				comp.save()

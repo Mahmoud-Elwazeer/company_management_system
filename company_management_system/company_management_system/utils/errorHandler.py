@@ -12,7 +12,7 @@ def global_error_handler(func):
         except Exception as e:
             # Log the error
             frappe.log_error(
-                title=f"Error in {func.__name__}",
+                title=f" Exception Error",
                 message=str(e)
             )
             # Raise a user-friendly validation error

@@ -14,9 +14,23 @@ class Employee(Document):
 		Use this method to throw any validation errors and prevent the document from saving
 		"""
 		self.calculate_days_employed()
+		validate_department_belongs_to_company(self.department, self.company)
+
+	@global_error_handler
+	def after_insert(self):
+		"""
+		This method is called after the document is inserted into the database.
+		"""
 		self.update_department_number_of_employees()
 		self.update_company_number_of_employees()
-		validate_department_belongs_to_company(self.department, self.company)
+
+	@global_error_handler
+	def after_delete(self):
+		"""
+		This method is called when the document is deleted.
+		"""
+		self.update_department_number_of_employees()
+		self.update_company_number_of_employees()
 
 	@global_error_handler
 	def calculate_days_employed(self):
@@ -71,7 +85,7 @@ class Employee(Document):
 
 	def load_from_db(self):
 		"""
-		Used to call call GET /api/resource/Employee/<employee-name>
+		Used to load data from db
 		"""
 		super().load_from_db()
 		self.check_permissions()

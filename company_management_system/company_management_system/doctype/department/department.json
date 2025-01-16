@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:department_name",
+ "autoname": "format:{company}-{department_name}",
  "creation": "2025-01-14 11:18:24.206948",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -25,8 +25,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Department Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "number_of_employees",
@@ -43,11 +42,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-15 08:54:00.399098",
+ "modified": "2025-01-16 10:39:22.465015",
  "modified_by": "Administrator",
  "module": "company_management_system",
  "name": "Department",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -59,31 +58,6 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Admin",
-   "select": 1,
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Manager",
-   "select": 1,
    "share": 1,
    "write": 1
   }

@@ -12,10 +12,24 @@ class Project(Document):
 		"""
 		Use this method to throw any validation errors and prevent the document from saving
 		"""
-		self.update_company_number_of_projects()
-		self.update_department_number_of_projects()
 		validate_department_belongs_to_company(self.department, self.company)
 		self.validate_assigned_employees()
+
+	@global_error_handler
+	def after_insert(self):
+		"""
+		This method is called after the document is inserted into the database.
+		"""
+		self.update_company_number_of_projects()
+		self.update_department_number_of_projects()
+
+	@global_error_handler
+	def after_delete(self):
+		"""
+		This method is called when the document is deleted.
+		"""
+		self.update_company_number_of_projects()
+		self.update_department_number_of_projects()
 
 	@global_error_handler
 	def validate_assigned_employees(self):
@@ -85,7 +99,7 @@ class Project(Document):
 
 	def load_from_db(self):
 		"""
-		Used to call call GET /api/resource/Project/<project-name>
+		Used to load data from db
 		"""
 		super().load_from_db()
 		self.check_permissions()

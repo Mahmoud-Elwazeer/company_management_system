@@ -4,7 +4,7 @@
   "doctype": "Workflow",
   "document_type": "Performance Review",
   "is_active": 1,
-  "modified": "2025-01-15 09:07:26.497067",
+  "modified": "2025-01-16 10:01:36.198463",
   "name": "Performance Review",
   "override_status": 0,
   "send_email_alert": 0,
@@ -21,7 +21,7 @@
     "parenttype": "Workflow",
     "state": "Pending Review",
     "update_field": "status",
-    "update_value": "",
+    "update_value": " Pending Review",
     "workflow_builder_id": null
    },
    {
@@ -36,7 +36,7 @@
     "parenttype": "Workflow",
     "state": "Review Scheduled",
     "update_field": "status",
-    "update_value": "",
+    "update_value": " Review Scheduled",
     "workflow_builder_id": null
    },
    {
@@ -51,7 +51,7 @@
     "parenttype": "Workflow",
     "state": "Feedback Provided",
     "update_field": "status",
-    "update_value": "",
+    "update_value": " Review Scheduled",
     "workflow_builder_id": null
    },
    {
@@ -66,7 +66,7 @@
     "parenttype": "Workflow",
     "state": "Under Approval",
     "update_field": "status",
-    "update_value": "",
+    "update_value": " Review Scheduled",
     "workflow_builder_id": null
    },
    {
@@ -81,7 +81,7 @@
     "parenttype": "Workflow",
     "state": "Review Approved",
     "update_field": "status",
-    "update_value": "",
+    "update_value": " Review Approved",
     "workflow_builder_id": null
    },
    {
@@ -96,7 +96,7 @@
     "parenttype": "Workflow",
     "state": "Review Rejected",
     "update_field": "status",
-    "update_value": "",
+    "update_value": " Review Approved",
     "workflow_builder_id": null
    }
   ],
@@ -105,7 +105,7 @@
     "action": "Confirm Review Date",
     "allow_self_approval": 1,
     "allowed": "Manager",
-    "condition": null,
+    "condition": "doc.review_date",
     "next_state": "Review Scheduled",
     "parent": "Performance Review",
     "parentfield": "transitions",
@@ -117,7 +117,7 @@
     "action": "Record Feedback",
     "allow_self_approval": 1,
     "allowed": "Manager",
-    "condition": null,
+    "condition": "",
     "next_state": "Feedback Provided",
     "parent": "Performance Review",
     "parentfield": "transitions",
@@ -129,7 +129,7 @@
     "action": "Submit for Approval",
     "allow_self_approval": 1,
     "allowed": "Manager",
-    "condition": null,
+    "condition": "doc.feedback",
     "next_state": "Under Approval",
     "parent": "Performance Review",
     "parentfield": "transitions",
@@ -141,7 +141,7 @@
     "action": "Approve Feedback",
     "allow_self_approval": 1,
     "allowed": "Admin",
-    "condition": null,
+    "condition": "",
     "next_state": "Review Approved",
     "parent": "Performance Review",
     "parentfield": "transitions",
@@ -153,7 +153,7 @@
     "action": "Reject Feedback",
     "allow_self_approval": 1,
     "allowed": "Admin",
-    "condition": null,
+    "condition": "",
     "next_state": "Review Rejected",
     "parent": "Performance Review",
     "parentfield": "transitions",
@@ -165,7 +165,7 @@
     "action": "Update Feedback",
     "allow_self_approval": 1,
     "allowed": "Manager",
-    "condition": null,
+    "condition": "",
     "next_state": "Feedback Provided",
     "parent": "Performance Review",
     "parentfield": "transitions",

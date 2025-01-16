@@ -17,9 +17,6 @@ fixtures = [
     # Export Workflow-related DocTypes
     {
         "doctype": "Workflow"
-    },
-    {
-        "doctype": "Workflow State"
     }
 ]
 
