@@ -1,0 +1,482 @@
+{
+	"info": {
+		"_postman_id": "80a275d0-c96b-4adb-bb1b-1d35834b72cd",
+		"name": "Frappe API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33651104"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "log in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// {\n//     \"usr\": \"Administrator\",\n//     \"pwd\": \"admin\"\n// }\n// {\n//     \"usr\": \"employee@gmail.com\",\n//     \"pwd\": \"User@123\"\n// }\n// {\n//     \"usr\": \"manager@gmail.com\",\n//     \"pwd\": \"User@123\"\n// }\n{\n    \"usr\": \"admin@gmail.com\",\n    \"pwd\": \"User@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/method/login"
+					},
+					"response": []
+				},
+				{
+					"name": "log out",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/method/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User (Only Admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test16@gmail.com\",\n    \"first_name\": \"Mahmoud\",\n    \"last_name\": \"Elwazeer\",\n    \"username\": \"Mahnoud.Elwazeer\",\n    \"new_password\": \"User@123\",\n    \"roles\": [\n        {\n            \"role\": \"Employee\"           // available roles: Amdin, Manager, Employee\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/User"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/User"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/User/admin@gmail.com"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Get Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Company"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Compay by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Company/Test C"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Company (Only Admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company_name\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Company"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company (Only Admin) Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Company/Test"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "Get Departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/resource/Department?filters=[[\"company\", \"=\", \"Test C\"]]",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"Department"
+							],
+							"query": [
+								{
+									"key": "filters",
+									"value": "[[\"company\", \"=\", \"Test C\"]]"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Department by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Department/Test"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Department (Only Admin)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company\": \"BrainWise\",\n    \"department_name\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Department"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Department (Only Admin) Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Department/Test C-TX"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Get Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/resource/Employee",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"Employee"
+							],
+							"query": [
+								{
+									"key": "filters",
+									"value": "[[\"company\", \"=\", \"BrainWise\"]]",
+									"disabled": true
+								},
+								{
+									"key": "filters",
+									"value": "[[\"department\", \"=\", \"Backend\"]]",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employee by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Employee/Mahmoud Elwazeer-003"
+					},
+					"response": []
+				},
+				{
+					"name": "Add new employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company\": \"BrainWise\",\n    \"department\": \"Backend\",\n    \"employee_name\": \"Mahmoud Elwazeer\",\n    \"email_address\": \"test2@gmail.com\",\n    \"mobile_number\": \"+201041489200\",\n    \"designation\": \"Junior Backend Engineer\"\n    // optional\n    // \"address\": \"address\",\n    // \"hired_on\": \"2025-02-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Employee"
+					},
+					"response": []
+				},
+				{
+					"name": "update employee by name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"company\": \"BrainWise\",\n    // \"department\": \"Backend\",\n    // \"employee_name\": \"Mahmoud Elwazeer\",\n    // \"email_address\": \"mahmoud.m.elwazeer@gmail.com\",\n    // \"mobile_number\": \"+201021489200\",\n    // \"designation\": \"Junior Backend Engineer\"\n    // optional\n    // \"address\": \"address\",\n    \"hired_on\": \"2025-02-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Employee/Mahmoud Elwazeer"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employee by name",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Employee/Mahmoud Elwazeer"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Get projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/resource/Project",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"Project"
+							],
+							"query": [
+								{
+									"key": "filters",
+									"value": "[[\"company\", \"=\", \"BrainWise\"]]",
+									"disabled": true
+								},
+								{
+									"key": "filters",
+									"value": "[[\"department\", \"=\", \"Backend\"]]",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get project by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Project/Frappe"
+					},
+					"response": []
+				},
+				{
+					"name": "Add new project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company\": \"BrainWise\",\n    \"department\": \"Backend\",\n    \"project_name\": \"Test\",\n    \"description\": \"Test\",  // optional\n    \"start_date\": \"2025-01-14\",\n    \"end_date\": \"2025-01-17\" ,         // optional\n    \"assigned_employees\": [\n        {\n            \"employee_name\": \"Mahmoud Elwazeer-003\"  // Note this is a name field in Employee not employee_name\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Project"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a project by name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"company\": \"BrainWise\",\n    // \"department\": \"Backend\",\n    // \"project_name\": \"Company Management System\",\n    \"description\": \"Build a System for companies\",  // optional\n    // \"start_date\": \"2025-01-14\",\n    \"end_date\": \"2025-01-18\"          // optional\n    // \"assigned_employees\": [\n    //     {\n    //         \"employee_name\": \"Mahmoud Elwazeer-003\"  // name field in Employee\n    //     }\n    // ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Project/Test-0005"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project by name",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Project/Test-0005"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Performance Review",
+			"item": [
+				{
+					"name": "Get Performance Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Performance Review"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Performance Review by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Performance Review/Mahmoud Elwazeer-003-038"
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Performance Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"employee_name\": \"Mahmoud Elwazeer-003\"  // Note this is a name field in Employee not employee_name\n    //  \"review_date\": \"2025-01-20\"          // optional\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Performance Review"
+					},
+					"response": []
+				},
+				{
+					"name": "update Performance Review by name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"review_date\": \"2025-02-20\",         // only available to change unless the document is in 'Review Scheduled' or 'Pending Review' status\n    \"feedback\": \"feedback\"             // optional\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/resource/Performance Review/Mahmoud Elwazeer-003-037"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Performance Review by name",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/resource/Performance Review/Mahmoud Elwazeer-003-013"
+					},
+					"response": []
+				},
+				{
+					"name": "Handle Workflow Action Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"action\": \"Approve Feedback\",\n    \"doc\": {\n        \"name\": \"Mahmoud Elwazeer-003-037\",\n        \"doctype\": \"Performance Review\"\n    }\n}\n// actions\n// Confirm Review Date, Record Feedback, Submit for Approval, Approve Feedback, Reject Feedback, Update Feedback\n\n\n// Notes for Troubleshooting\n//  before action Confirm Review Date make sure review_date available for doc or update it if not available\n// before action Submit for Approval make sure feedback available for doc or update it if not available\n// make sure from permission action (Confirm Review Date, Record Feedback, Submit for Approval ) available only who have role Manager\n// make sure from permission action ( Approve Feedback, Reject Feedback, Update Feedback ) available only who have role Admin\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/method/frappe.model.workflow.apply_workflow"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
